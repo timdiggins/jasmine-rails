@@ -27,8 +27,8 @@ module JasmineRails
       FileUtils.mkdir_p File.dirname(source_path)
       Rails.logger.debug "Compiling #{source} to #{source_path}"
       File.open(source_path, 'wb') do |f|
-        if (Rails::VERSION::MAJOR == 4 || Sprockets::VERSION.starts_with?("2.2.2.backport")) && !Rails.env.test? &&
-            source == 'jasmine-specs.js'
+        if (Rails::VERSION::MAJOR == 4 || Sprockets::VERSION.starts_with?("2.2.2.backport")) && source ==
+            'jasmine-specs.js'
           f << ''
         else
           f << content
