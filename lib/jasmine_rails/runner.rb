@@ -25,7 +25,7 @@ module JasmineRails
 
       private
       def include_offline_asset_paths_helper
-        if Rails::VERSION::MAJOR >= 4
+        if Rails::VERSION::MAJOR >= 4 || ::Sprockets::VERSION.starts_with?("2.2.2.backport")
           Sprockets::Rails::Helper.send :include, JasmineRails::OfflineAssetPaths
         else
           ActionView::AssetPaths.send :include, JasmineRails::OfflineAssetPaths
